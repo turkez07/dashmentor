@@ -12,6 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <Container>
+      <h1>Logado!</h1>
       <button type="button" onClick={handleLogout}>Logout</button>
     </Container>
   );
