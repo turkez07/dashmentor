@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const ContentBox = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.secondaryBlack};
     border-radius: 8px;
     box-shadow: rgb(0 0 0 / 2%) 0px 3px 10px 0px;
     padding: 40px;
@@ -28,7 +28,7 @@ export const ContentBoxTexts = styled.div`
     margin: 30px 0;
     
     > h1 {
-      color: ${theme.colors.primaryBlack};
+      color: ${theme.colors.white};
       margin: 0 0 8px 0;
       font-size: 2.4rem;
       line-height: 3rem;
@@ -36,7 +36,8 @@ export const ContentBoxTexts = styled.div`
     }
 
     > p {
-      color: ${theme.colors.primaryBlack50};
+      color: ${theme.colors.white};
+      opacity: .5;
       font-size: 1.4rem;
       line-height: 2.2rem;
       font-weight: 400;
@@ -48,10 +49,10 @@ export const Brand = styled.div`
   ${({ theme }) => css`
     width: 53px;
     height: 53px;
-    background-color: ${theme.colors.primaryBlack};
+    border: 1px dashed ${theme.colors.white};
     border-radius: 17px;
     color: ${theme.colors.white};
-    font-size: 2rem;
+    font-size: 1.4rem;
     padding: 10px;
 
     display: flex;
@@ -75,7 +76,7 @@ export const Form = styled.form`
     flex-direction: column;
 
     > small {
-      color: ${theme.colors.primaryBlack};
+      color: ${theme.colors.white};
       font-size: 1.2rem;
       line-height: 2.2rem;
       align-self: center;
@@ -84,13 +85,20 @@ export const Form = styled.form`
     }
 
     > button {
-      background-color: ${theme.colors.primaryBlack};
+      background-color: ${theme.colors.purple};
       border-radius: 4px;
       color: ${theme.colors.white};
       height: 60px;
       margin: 10px 0 0 0;
 
       transition: 0.5s ease-in;
+
+      display: flex;
+      align-items: center;
+
+      > svg {
+        margin: 0 0 0 6px;
+      }
 
       &:hover {
         opacity: 0.8;
@@ -110,7 +118,7 @@ export const InputControl = styled.div`
       font-size: 1.4rem;
       line-height: 2.2rem;
       font-weight: 400;
-      color: ${theme.colors.primaryBlack};
+      color: ${theme.colors.white};
       margin: 0 0 12px 0;
     }
 
@@ -125,7 +133,7 @@ export const InputControl = styled.div`
       transition: 0.5s ease-in;
 
       &:focus {
-        border: 1px solid ${theme.colors.primaryBlack};
+        border: 1px solid ${theme.colors.purple};
       }
     }
   `};
@@ -137,7 +145,8 @@ export const AccessBox = styled.div`
     justify-content: center;
     align-items: center;
     
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.secondaryBlack};
+    color: ${theme.colors.white};
     padding: 10px 50px;
     margin: 20px 0 0 0;
     border-radius: 5px;

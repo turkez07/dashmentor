@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%; // 1rem = 10px
     height: 100%;
     font-family: 'Sora', 'Inter', Helvetica, Arial, sans-serif;
-    background: #F5F7FB;
+    background: #191919;
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
 

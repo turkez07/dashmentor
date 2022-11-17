@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
 import { useAuth } from '../../contexts/AuthContext';
 
 import {
@@ -26,22 +27,25 @@ const SignIn: React.FC = () => {
     <Container>
       <LeftContent>
         <ContentBox>
-          <Brand />
+          <Brand>
+            💡
+          </Brand>
           <ContentBoxTexts>
             <h1>Entre em sua conta</h1>
             <p>Faça login e gerencie seus produtos e mentorias.</p>
           </ContentBoxTexts>
-          <Form>
+          <Form onSubmit={() => handleLogin()}>
             <InputControl>
               <small>Endereço de e-mail</small>
-              <input type="text" placeholder="Digite seu e-mail" />
+              <input type="email" placeholder="Digite seu e-mail" required />
             </InputControl>
             <InputControl>
               <small>Senha</small>
-              <input type="password" placeholder="Digite a sua senha" />
+              <input type="password" placeholder="Digite a sua senha" required />
             </InputControl>
-            <button type="button" onClick={handleLogin}>
+            <button type="submit">
               Entrar
+              <RiLogoutBoxRLine />
             </button>
           </Form>
         </ContentBox>
