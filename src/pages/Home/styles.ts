@@ -298,6 +298,8 @@ export const ContentTable = styled.div`
 export const Table = styled.table`
   display: flex;
   flex-direction: column;
+
+  margin: 0 0 12px 0;
 `;
 
 export const TableItem = styled.div`

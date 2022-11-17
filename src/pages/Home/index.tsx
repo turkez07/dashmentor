@@ -119,6 +119,18 @@ const Home: React.FC = () => {
               <RiMoreFill />
             </TableItem>
           </Table>
+          <small>Setembro</small>
+          <Table>
+            <TableItem>
+              <TableItemIcon>
+                🚗
+              </TableItemIcon>
+              <h4>Lorem Ipsum dolor sit</h4>
+              <span>8 de Agosto, 20:31</span>
+              <Price status="revenue">+R$ 14.310,00</Price>
+              <RiMoreFill />
+            </TableItem>
+          </Table>
         </ContentTable>
       </Content>
     </Container>
