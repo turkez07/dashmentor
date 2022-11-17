@@ -1,17 +1,23 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { AuthProvider } from './contexts/AuthContext';
 import Routes from './routes';
+import * as themes from './styles/themes';
+import GlobalStyles from './styles/globalStyles';
+import { AuthProvider } from './contexts/AuthContext';
+import useAppTheme from './contexts/ThemeContext';
 
-import defaultTheme from './styles/themes/defaultTheme';
+const App: React.FC = () => {
+  const { currentTheme } = useAppTheme();
 
-const App: React.FC = () => (
-  <ThemeProvider theme={defaultTheme}>
-    <AuthProvider>
-      <Routes />
-    </AuthProvider>
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={themes[currentTheme]}>
+      <AuthProvider>
+        <Routes />
+        <GlobalStyles />
+      </AuthProvider>
+    </ThemeProvider>
+  );
+};
 
 export default App;

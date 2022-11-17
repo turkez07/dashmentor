@@ -36,7 +36,8 @@
       }
     ],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-explicit-any": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-empty-interface": "off"
   },
   "settings": {
     "import/resolver": {

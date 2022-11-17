@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const ContentBox = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.secondaryBlack};
+    background-color: ${theme.colors.secondaryBackground};
     border-radius: 8px;
     box-shadow: rgb(0 0 0 / 2%) 0px 3px 10px 0px;
     padding: 40px;
@@ -28,7 +28,7 @@ export const ContentBoxTexts = styled.div`
     margin: 30px 0;
     
     > h1 {
-      color: ${theme.colors.white};
+      color: ${theme.colors.grey};
       margin: 0 0 8px 0;
       font-size: 2.4rem;
       line-height: 3rem;
@@ -36,7 +36,7 @@ export const ContentBoxTexts = styled.div`
     }
 
     > p {
-      color: ${theme.colors.white};
+      color: ${theme.colors.grey};
       opacity: .5;
       font-size: 1.4rem;
       line-height: 2.2rem;
@@ -49,9 +49,9 @@ export const Brand = styled.div`
   ${({ theme }) => css`
     width: 53px;
     height: 53px;
-    border: 1px dashed ${theme.colors.white};
+    border: 1px dashed ${theme.colors.grey};
     border-radius: 17px;
-    color: ${theme.colors.white};
+    color: ${theme.colors.grey};
     font-size: 1.4rem;
     padding: 10px;
 
@@ -76,7 +76,7 @@ export const Form = styled.form`
     flex-direction: column;
 
     > small {
-      color: ${theme.colors.white};
+      color: ${theme.colors.grey};
       font-size: 1.2rem;
       line-height: 2.2rem;
       align-self: center;
@@ -85,7 +85,7 @@ export const Form = styled.form`
     }
 
     > button {
-      background-color: ${theme.colors.purple};
+      background-color: ${theme.colors.primary};
       border-radius: 4px;
       color: ${theme.colors.white};
       height: 60px;
@@ -118,7 +118,7 @@ export const InputControl = styled.div`
       font-size: 1.4rem;
       line-height: 2.2rem;
       font-weight: 400;
-      color: ${theme.colors.white};
+      color: ${theme.colors.grey};
       margin: 0 0 12px 0;
     }
 
@@ -128,12 +128,13 @@ export const InputControl = styled.div`
       height: 60px;
       border: 0;
       background-color: ${theme.colors.background};
-      border: 1px solid ${theme.colors.background};
+      color: ${theme.colors.grey};
+      border: 1px solid transparent;
 
-      transition: 0.5s ease-in;
+      transition: border-color 0.5s ease-in;
 
       &:focus {
-        border: 1px solid ${theme.colors.purple};
+        border-color: ${theme.colors.primary};
       }
     }
   `};
@@ -145,8 +146,8 @@ export const AccessBox = styled.div`
     justify-content: center;
     align-items: center;
     
-    background-color: ${theme.colors.secondaryBlack};
-    color: ${theme.colors.white};
+    background-color: ${theme.colors.secondaryBackground};
+    color: ${theme.colors.grey};
     padding: 10px 50px;
     margin: 20px 0 0 0;
     border-radius: 5px;

@@ -28,7 +28,7 @@ const SignIn: React.FC = () => {
       <LeftContent>
         <ContentBox>
           <Brand>
-            💡
+            🔥
           </Brand>
           <ContentBoxTexts>
             <h1>Entre em sua conta</h1>

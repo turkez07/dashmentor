@@ -6,35 +6,37 @@ import {
   RiLogoutBoxLine,
   RiUserStarLine,
   RiMenuFoldLine,
-  RiMoreFill,
 } from 'react-icons/ri';
 import { useAuth } from '../../contexts/AuthContext';
+
+import ThemeSwitcher from '../../components/ThemeSwitcher';
 
 import {
   Container,
   Content,
   ContentHeaderTexts,
   Sidebar,
-  SidebarBrand,
   MenuItems,
   Item,
   Tag,
   ToggleButton,
-  CalendarDropdDown,
   ContentHeader,
   ContentCharts,
   Navbar,
   UserImage,
-  ContentTable,
-  Table,
-  TableItem,
-  TableItemIcon,
-  Price,
+  ChartBox,
+  ChartBoxHeader,
+  UserInformations,
+  // ContentTable,
+  // Table,
+  // TableItem,
+  // TableItemIcon,
+  // Price,
 } from './styles';
 
 const Home: React.FC = () => {
   const { Logout } = useAuth();
-  const [toggled, setToggled] = useState<boolean>(true);
+  const [toggled, setToggled] = useState<boolean>(false);
 
   function handleLogout(): void {
     Logout();
@@ -43,7 +45,11 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Sidebar toggled={toggled}>
-        <SidebarBrand>💡</SidebarBrand>
+        {/* <SidebarBrand>💡</SidebarBrand> */}
+        <UserInformations>
+          <UserImage src="https://images.squarespace-cdn.com/content/v1/5f4a76a972929a02697016c2/5f25fa2d-c94a-4205-be5d-cd07f04ed965/Steven+Memoji.png?format=300w" />
+          <h3>Olá, Arthur! 👋</h3>
+        </UserInformations>
         <MenuItems>
           <Item active>
             <RiNumbersLine />
@@ -75,8 +81,7 @@ const Home: React.FC = () => {
           <ToggleButton onClick={() => setToggled(!toggled)} toggled={toggled}>
             <RiMenuFoldLine />
           </ToggleButton>
-          <h3>Olá, Arthur! 👋</h3>
-          <UserImage src="https://images.squarespace-cdn.com/content/v1/5f4a76a972929a02697016c2/5f25fa2d-c94a-4205-be5d-cd07f04ed965/Steven+Memoji.png?format=300w" />
+          <ThemeSwitcher />
         </Navbar>
         <ContentHeader>
           <ContentHeaderTexts>
@@ -86,18 +91,51 @@ const Home: React.FC = () => {
               Financeiro, projetos e mentorias..
             </small>
           </ContentHeaderTexts>
-
-          <CalendarDropdDown>Últimos 3 meses</CalendarDropdDown>
         </ContentHeader>
-        <ContentCharts />
 
-        <ContentHeader>
+        <ContentCharts>
+          <ChartBox>
+            <ChartBoxHeader>
+              <small>
+                Entrada
+                <span>+ 4,50%</span>
+              </small>
+              <h4>
+                $33,587.96
+              </h4>
+            </ChartBoxHeader>
+          </ChartBox>
+          <ChartBox>
+            <ChartBoxHeader>
+              <small>
+                Saída
+                <span>+ 3,77%</span>
+              </small>
+              <h4>
+                $3,289.05
+              </h4>
+            </ChartBoxHeader>
+          </ChartBox>
+          <ChartBox>
+            <ChartBoxHeader>
+              <small>
+                Lucro
+                <span>+ 10,25%</span>
+              </small>
+              <h4>
+                $30,298.91
+              </h4>
+            </ChartBoxHeader>
+          </ChartBox>
+        </ContentCharts>
+
+        {/* <ContentHeader>
           <ContentHeaderTexts>
             <h2>Últimas movimentações</h2>
           </ContentHeaderTexts>
           <CalendarDropdDown>Ver todas</CalendarDropdDown>
-        </ContentHeader>
-        <ContentTable>
+        </ContentHeader> */}
+        {/* <ContentTable>
           <small>Agosto</small>
           <Table>
             <TableItem>
@@ -131,7 +169,7 @@ const Home: React.FC = () => {
               <RiMoreFill />
             </TableItem>
           </Table>
-        </ContentTable>
+        </ContentTable> */}
       </Content>
     </Container>
   );
