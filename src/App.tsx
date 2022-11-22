@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import Routes from './routes';
@@ -13,7 +14,9 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={themes[currentTheme]}>
       <AuthProvider>
-        <Routes />
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
         <GlobalStyles />
       </AuthProvider>
     </ThemeProvider>

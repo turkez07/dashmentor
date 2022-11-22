@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Sora', Helvetica, Sans-Serif;
+    font-family: 'Archivo', Helvetica, Sans-Serif;
   }
 
   * {
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%; // 1rem = 10px
     height: 100%;
-    font-family: 'Sora', 'Inter', Helvetica, Arial, sans-serif;
+    font-family: 'Archivo', 'Inter', Helvetica, Arial, sans-serif;
     background-color:  ${({ theme }) => theme.colors.background};
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button, input {
-    font-family: 'Sora', 'Inter', Helvetica, Arial, sans-serif;
+    font-family: 'Archivo', 'Inter', Helvetica, Arial, sans-serif;
     font-size: 1.4rem;
   }
 
