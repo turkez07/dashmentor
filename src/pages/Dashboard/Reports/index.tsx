@@ -1,29 +1,16 @@
 import React from 'react';
-import {
-  RiMenuFoldLine,
-} from 'react-icons/ri';
-
-import ThemeSwitcher from '../../../components/ThemeSwitcher';
 
 import {
   Container,
   ContentHeaderTexts,
-  ToggleButton,
   ContentHeader,
   ContentCharts,
-  Navbar,
   ChartBox,
   ChartBoxHeader,
 } from './styles';
 
 const Reports: React.FC = () => (
   <Container>
-    <Navbar>
-      <ToggleButton>
-        <RiMenuFoldLine />
-      </ToggleButton>
-      <ThemeSwitcher />
-    </Navbar>
     <ContentHeader>
       <ContentHeaderTexts>
         <h2>Relatórios</h2>

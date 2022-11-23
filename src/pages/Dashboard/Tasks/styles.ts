@@ -107,21 +107,6 @@ export const Navbar = styled.div`
   margin: 0 0 24px 0;
 `;
 
-export const ContentTable = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-
-    > small {
-      color: ${theme.colors.white};
-      font-size: 1.4rem;
-      line-height: 1.8rem;
-      margin: 0 0 18px 0;
-      opacity: 0.3;
-    }
-  `};
-`;
-
 export const Table = styled.table`
   display: flex;
   flex-direction: column;
@@ -225,5 +210,76 @@ export const ChartBoxHeader = styled.div`
       line-height: 1.6rem;
       color: ${theme.colors.grey};
     }
+  `};
+`;
+
+export const ToDoList = styled.div`
+  margin: 24px 0 0 0;
+`;
+
+export const ToDoListItem = styled.li`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin: 0 0 16px 0;
+    }
+
+    > span {
+      margin: 0 0 0 8px;
+      color: ${theme.colors.grey};
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.8rem;
+    }
+  `};
+`;
+
+export const SearchInput = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    > input {
+      padding: 19px 24px 19px 20px;
+      border-radius: 4px;
+      height: 60px;
+      border: 0;
+      background-color: ${theme.colors.secondaryBackground};
+      color: ${theme.colors.grey};
+      border: 1px solid transparent;
+      width: 100%;
+      font-size: 1.3rem;
+      line-height: 2.2rem;
+
+      transition: border-color 0.5s ease-in;
+
+      &:focus {
+        border-color: ${theme.colors.primary};
+      }
+
+      &::placeholder {
+        color: ${theme.colors.grey};
+        opacity: 0.8;
+      }
+    }
+
+    > button {
+      background-color: transparent;
+      color: ${theme.colors.primary};
+
+      position: absolute;
+      right: 20px;
+    }
+  `};
+`;
+
+export const ToDoListList = styled.ul`
+  ${({ theme }) => css`
+    margin: 24px 0 0 0;
+    border-radius: 4px;
   `};
 `;

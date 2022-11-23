@@ -84,10 +84,19 @@ export const Sidebar = styled.div<{ toggled?: boolean }>`
 `;
 
 export const MenuItems = styled.div`
-  margin: 0 0 0 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => css`
+    margin: 0 0 0 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    > a.isActive {
+      ${Item} {
+        color: ${theme.colors.grey};
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  `};
 `;
 
 export const Item = styled.div<{ active?: boolean }>`
@@ -115,13 +124,6 @@ export const Item = styled.div<{ active?: boolean }>`
     > span {
       animation: ${opacityAnimation} 1s ease-in-out;
     }
-
-    ${active
-    && css`
-      color: ${theme.colors.grey};
-      font-weight: 600;
-      background-color: rgba(0, 0, 0, 0.1);
-    `}
 
     > svg {
       margin: 0 12px 0 0;

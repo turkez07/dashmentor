@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import {
   RiNumbersLine,
-  RiRocketLine,
+  RiGroupLine,
   RiCalendarLine,
   RiLogoutBoxLine,
-  RiUserStarLine,
+  RiUser4Line,
+  RiTodoLine,
 } from 'react-icons/ri';
+
+import Navbar from '../../components/Navbar';
 
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -30,6 +33,8 @@ const Dashboard: React.FC = () => {
     Logout();
   }
 
+  const attributteClassName = (navData: any): string => (navData.isActive ? 'isActive' : '');
+
   return (
     <Container>
       <Sidebar toggled={toggled}>
@@ -38,23 +43,38 @@ const Dashboard: React.FC = () => {
           <h3>Olá, Arthur! 👋</h3>
         </UserInformations>
         <MenuItems>
-          <Item active>
-            <RiNumbersLine />
-            <span>Relatórios</span>
-            <Tag>Novo!</Tag>
-          </Item>
-          <Item>
-            <RiRocketLine />
-            <span>Projetos</span>
-          </Item>
-          <Item>
-            <RiCalendarLine />
-            <span>Agenda</span>
-          </Item>
-          <Item>
-            <RiUserStarLine />
-            <span>Mentorados</span>
-          </Item>
+          <NavLink to="/" className={attributteClassName}>
+            <Item>
+              <RiNumbersLine />
+              <span>Relatórios</span>
+              <Tag>Novo!</Tag>
+            </Item>
+          </NavLink>
+          <NavLink to="Mentorships" className={attributteClassName}>
+            <Item>
+              <RiGroupLine />
+              <span>Mentorias</span>
+            </Item>
+          </NavLink>
+          <NavLink to="calendar" className={attributteClassName}>
+            <Item>
+              <RiCalendarLine />
+              <span>Agenda</span>
+            </Item>
+          </NavLink>
+          <NavLink to="tasks" className={attributteClassName}>
+            <Item>
+              <RiTodoLine />
+              <span>Tarefas</span>
+            </Item>
+          </NavLink>
+          <NavLink to="mentees" className={attributteClassName}>
+            <Item>
+              <RiUser4Line />
+              <span>Clientes</span>
+            </Item>
+          </NavLink>
+
           <Item onClick={() => handleLogout()}>
             <RiLogoutBoxLine />
             <span>Sair</span>
@@ -62,6 +82,7 @@ const Dashboard: React.FC = () => {
         </MenuItems>
       </Sidebar>
       <DashboardOutlet>
+        <Navbar toggled={toggled} toggleSidebar={() => setToggled(!toggled)} />
         <Outlet />
       </DashboardOutlet>
     </Container>

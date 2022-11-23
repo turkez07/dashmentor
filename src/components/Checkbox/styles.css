@@ -1,0 +1,35 @@
+input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.checkbox {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid #FFB624;
+  border-radius: 4px;
+  transition: 180ms ease-in-out;
+}
+
+.checkbox.checkbox--active {
+  background-color: #FFB624;
+}
+
