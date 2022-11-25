@@ -1,7 +1,3 @@
-<h1 align="center">
-  <img alt="Bravosul" src="https://www.bravosul.com.br/assets/Logo.svg" height="50px" />  
-</h1>
-
 Template to use in dashboard projects.
 
 ### Available Scripts
