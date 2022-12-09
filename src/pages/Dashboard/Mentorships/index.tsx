@@ -11,9 +11,6 @@ const Mentorships: React.FC = () => (
     <ContentHeader>
       <ContentHeaderTexts>
         <h2>Mentorias</h2>
-        <small>
-          Financeiro, projetos e mentorias..
-        </small>
       </ContentHeaderTexts>
     </ContentHeader>
   </Container>

@@ -74,7 +74,6 @@ export const ContentHeaderTexts = styled.div`
       font-size: 2.4rem;
       line-height: 3rem;
       letter-spacing: -0.5px;
-      margin: 0 0 6px 0;
     }
 
     > small {
@@ -95,7 +94,9 @@ export const ContentHeader = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.grey};
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    height: 46px;
   `};
 `;
 
@@ -105,181 +106,4 @@ export const Navbar = styled.div`
   align-items: center;
 
   margin: 0 0 24px 0;
-`;
-
-export const Table = styled.table`
-  display: flex;
-  flex-direction: column;
-
-  margin: 0 0 12px 0;
-`;
-
-export const TableItem = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    color: ${theme.colors.grey};
-    margin: 0 0 18px 0;
-
-    > span {
-      font-size: 1.2rem;
-      line-height: 1.8rem;
-      font-weight: 500;
-      opacity: 0.5;
-    }
-
-    > h4 {
-      font-size: 1.4rem;
-      opacity: 0.8;
-    }
-
-    > svg {
-      font-size: 2rem;
-    }
-  `};
-`;
-
-export const TableItemIcon = styled.div`
-  ${({ theme }) => css`
-    width: 52px;
-    height: 52px;
-    background-color: ${theme.colors.secondaryBackground};
-    border-radius: 8px;
-    font-size: 1.8rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `};
-`;
-
-export const ChartBox = styled.div`
-  ${({ theme }) => css`
-    background-color: ${theme.colors.secondaryBackground};
-    flex: 1;
-    border-radius: 8px;
-    padding: 48px 32px;
-    height: 200px;
-    width: 100%;
-    position: relative;
-    transition: all 300ms ease-out 0s;
-    cursor: pointer;
-
-    display: flex;
-    align-items: flex-start;
-
-    :after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 10px;
-      border-top: 1px solid ${theme.colors.error};
-      border-radius: 50%;
-      left: 0;
-      bottom: 25%;
-    }
-
-    &:hover {
-      transform: translateY(-4px) translateZ(0);
-    }
-  `};
-`;
-
-export const ChartBoxHeader = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    > small {
-      color: ${theme.colors.grey};
-      font-size: 1.4rem;
-      font-weight: 500;
-      line-height: 1.8rem;
-      opacity: 0.7;
-      margin: 0 0 12px 0;
-
-      display: flex;
-      justify-content: space-between;
-    }
-
-    > h4 {
-      font-size: 1.8rem;
-      line-height: 1.6rem;
-      color: ${theme.colors.grey};
-    }
-  `};
-`;
-
-export const ToDoList = styled.div`
-  margin: 24px 0 0 0;
-`;
-
-export const ToDoListItem = styled.li`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-
-    &:not(:last-child) {
-      margin: 0 0 16px 0;
-    }
-
-    > span {
-      margin: 0 0 0 8px;
-      color: ${theme.colors.grey};
-      font-size: 1.2rem;
-      font-weight: 400;
-      line-height: 1.8rem;
-    }
-  `};
-`;
-
-export const SearchInput = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-
-    position: relative;
-
-    > input {
-      padding: 19px 24px 19px 20px;
-      border-radius: 4px;
-      height: 60px;
-      border: 0;
-      background-color: ${theme.colors.secondaryBackground};
-      color: ${theme.colors.grey};
-      border: 1px solid transparent;
-      width: 100%;
-      font-size: 1.3rem;
-      line-height: 2.2rem;
-
-      transition: border-color 0.5s ease-in;
-
-      &:focus {
-        border-color: ${theme.colors.primary};
-      }
-
-      &::placeholder {
-        color: ${theme.colors.grey};
-        opacity: 0.8;
-      }
-    }
-
-    > button {
-      background-color: transparent;
-      color: ${theme.colors.primary};
-
-      position: absolute;
-      right: 20px;
-    }
-  `};
-`;
-
-export const ToDoListList = styled.ul`
-  ${({ theme }) => css`
-    margin: 24px 0 0 0;
-    border-radius: 4px;
-  `};
 `;

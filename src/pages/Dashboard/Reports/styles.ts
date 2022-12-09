@@ -170,8 +170,8 @@ export const TableItemIcon = styled.div`
   `};
 `;
 
-export const ChartBox = styled.div`
-  ${({ theme }) => css`
+export const ChartBox = styled.div<{ chartType?: string }>`
+  ${({ theme, chartType }) => css`
     background-color: ${theme.colors.secondaryBackground};
     flex: 1;
     border-radius: 8px;
@@ -190,7 +190,7 @@ export const ChartBox = styled.div`
       position: absolute;
       width: 100%;
       height: 10px;
-      border-top: 1px solid ${theme.colors.error};
+      border-top: 1px solid ${chartType === 'positive' ? theme.colors.success : theme.colors.error};
       border-radius: 50%;
       left: 0;
       bottom: 25%;
@@ -198,6 +198,12 @@ export const ChartBox = styled.div`
 
     &:hover {
       transform: translateY(-4px) translateZ(0);
+    }
+
+    ${ChartBoxHeader} {
+      > small > span {
+        color: ${chartType === 'positive' ? theme.colors.success : theme.colors.error};
+      }
     }
   `};
 `;
@@ -218,6 +224,16 @@ export const ChartBoxHeader = styled.div`
 
       display: flex;
       justify-content: space-between;
+
+      > span {
+        display: flex;
+        align-items: center;
+
+        > svg {
+          margin-right: 6px;
+          font-size: 1.6rem;
+        }
+      }
     }
 
     > h4 {

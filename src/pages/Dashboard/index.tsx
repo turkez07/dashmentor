@@ -68,7 +68,7 @@ const Dashboard: React.FC = () => {
               <span>Tarefas</span>
             </Item>
           </NavLink>
-          <NavLink to="mentees" className={attributteClassName}>
+          <NavLink to="customers" className={attributteClassName}>
             <Item>
               <RiUser4Line />
               <span>Clientes</span>

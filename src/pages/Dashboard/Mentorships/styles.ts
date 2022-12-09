@@ -50,7 +50,6 @@ export const ContentHeaderTexts = styled.div`
       font-size: 2.4rem;
       line-height: 3rem;
       letter-spacing: -0.5px;
-      margin: 0 0 6px 0;
     }
 
     > small {
@@ -71,7 +70,9 @@ export const ContentHeader = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.grey};
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    height: 46px;
   `};
 `;
 
