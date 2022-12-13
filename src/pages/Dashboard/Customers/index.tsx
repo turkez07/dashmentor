@@ -37,7 +37,7 @@ const Customers: React.FC = () => {
     <Container>
       <ContentHeader>
         <ContentHeaderTexts>
-          <h2>Employees</h2>
+          <h2>Clientes</h2>
           <ContentHeaderButtons>
             <ViewChanger>
               <RiFunctionLine
@@ -50,13 +50,13 @@ const Customers: React.FC = () => {
                 onClick={() => setViewMode('list')}
               />
             </ViewChanger>
-            <button type="button">New employee</button>
+            <button type="button">Novo cliente</button>
           </ContentHeaderButtons>
         </ContentHeaderTexts>
         <ContentHeaderSub>
           <SearchInput>
             <RiSearchLine />
-            <input type="text" placeholder="Search employees" />
+            <input type="text" placeholder="Procurar clientes" />
           </SearchInput>
         </ContentHeaderSub>
       </ContentHeader>
@@ -65,10 +65,10 @@ const Customers: React.FC = () => {
         <CustomersTable>
           <CustomersTableHeader>
             <CustomersTableHeaderItem>Avatar</CustomersTableHeaderItem>
-            <CustomersTableHeaderItem>Name</CustomersTableHeaderItem>
-            <CustomersTableHeaderItem>Status</CustomersTableHeaderItem>
-            <CustomersTableHeaderItem>Location</CustomersTableHeaderItem>
-            <CustomersTableHeaderItem>Actions</CustomersTableHeaderItem>
+            <CustomersTableHeaderItem>Nome</CustomersTableHeaderItem>
+            <CustomersTableHeaderItem>Preço</CustomersTableHeaderItem>
+            <CustomersTableHeaderItem>Localização</CustomersTableHeaderItem>
+            <CustomersTableHeaderItem>Ações</CustomersTableHeaderItem>
           </CustomersTableHeader>
           <CustomersTableContent>
             {customers?.map((customer) => (
@@ -82,14 +82,14 @@ const Customers: React.FC = () => {
                   {customer?.lastName}
                 </CustomersTableContentRowItem>
                 <CustomersTableContentRowItem>
-                  {customer?.status}
+                  {customer?.commission}
                 </CustomersTableContentRowItem>
                 <CustomersTableContentRowItem>
                   {customer?.address?.city}
                 </CustomersTableContentRowItem>
                 <CustomersTableContentRowItem>
                   <RiMessage2Line />
-                  Send message
+                  Mandar mensagem
                 </CustomersTableContentRowItem>
               </CustomersTableContentRow>
             ))}
@@ -103,7 +103,7 @@ const Customers: React.FC = () => {
                 <CustomerBlockImage src={customer?.thumbnailUrl} />
                 <CustomerBlockItemHeaderTexts>
                   <h4>{customer?.name}</h4>
-                  <small>{customer?.status}</small>
+                  <small>{customer?.commission}</small>
                 </CustomerBlockItemHeaderTexts>
               </CustomerBlockItemHeader>
               <CustomerBlockItemContent>
@@ -111,7 +111,7 @@ const Customers: React.FC = () => {
               </CustomerBlockItemContent>
               <CustomerBlockItemFooter>
                 <RiMessage2Line />
-                Send message
+                Mandar mensagem
               </CustomerBlockItemFooter>
             </CustomerBlockItem>
           ))}

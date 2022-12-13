@@ -26,7 +26,6 @@ const Router: React.FC = () => {
       ) : (
         <Route path="/" element={<SignIn />} />
       )}
-      <Route path="*" element={<Dashboard />} />
     </Routes>
   );
 };

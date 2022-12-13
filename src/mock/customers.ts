@@ -5,7 +5,7 @@ interface Customer {
   name: string;
   lastName: string;
   email: string;
-  status?: string;
+  commission?: string;
   phone?: string | any;
   address: {
     street: string;
@@ -25,7 +25,7 @@ export function createRandomCustomer(): Customer {
     name: faker.name.firstName(),
     lastName: faker.name.lastName(),
     email: faker.internet.email(),
-    status: 'Active',
+    commission: 'R$ 1.200,00',
     phone: faker?.phone?.number,
     address: {
       street: faker.address.street(),

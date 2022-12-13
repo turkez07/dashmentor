@@ -56,12 +56,6 @@ const Dashboard: React.FC = () => {
               <span>Mentorias</span>
             </Item>
           </NavLink>
-          <NavLink to="calendar" className={attributteClassName}>
-            <Item>
-              <RiCalendarLine />
-              <span>Agenda</span>
-            </Item>
-          </NavLink>
           <NavLink to="tasks" className={attributteClassName}>
             <Item>
               <RiTodoLine />
@@ -72,6 +66,12 @@ const Dashboard: React.FC = () => {
             <Item>
               <RiUser4Line />
               <span>Clientes</span>
+            </Item>
+          </NavLink>
+          <NavLink to="calendar" className={attributteClassName}>
+            <Item>
+              <RiCalendarLine />
+              <span>Agenda</span>
             </Item>
           </NavLink>
 
