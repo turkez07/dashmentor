@@ -251,6 +251,10 @@ export const SearchInput = styled.div`
       &:focus {
         border-color: ${theme.colors.primary};
       }
+
+      &::placeholder {
+        opacity: 0.8;
+      }
     }
   
     > svg {
@@ -416,6 +420,7 @@ export const CustomerBlockItem = styled.div`
     cursor: pointer;
     border: 0.5px solid ${theme.colors.secondaryBackground};
     transition: ${theme.transition.default};
+    box-shadow: ${theme.shadows.default};
 
     &:hover {
       border-color: ${theme.colors.primary};
