@@ -5,7 +5,7 @@ interface Customer {
   name: string;
   lastName: string;
   email: string;
-  commission?: string;
+  commission?: string | number | bigint | any;
   phone?: string | any;
   address: {
     street: string;
@@ -25,8 +25,8 @@ export function createRandomCustomer(): Customer {
     name: faker.name.firstName(),
     lastName: faker.name.lastName(),
     email: faker.internet.email(),
-    commission: 'R$ 1.200,00',
-    phone: faker?.phone?.number,
+    commission: faker.finance.amount(),
+    phone: faker?.phone?.number(),
     address: {
       street: faker.address.street(),
       city: faker.address.city(),
@@ -34,7 +34,7 @@ export function createRandomCustomer(): Customer {
       number: faker.address.buildingNumber(),
       complement: null,
     },
-    thumbnailUrl: faker.internet.avatar(),
+    thumbnailUrl: faker.image.imageUrl(),
   };
 }
 

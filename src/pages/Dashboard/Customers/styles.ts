@@ -331,7 +331,13 @@ export const CustomersTableContentRowItem = styled.div`
     align-items: center;
 
     > svg {
-      margin: 0 6px 0 0;
+      &:not(:last-child) {
+        margin: 0 8px 0 0;
+      }
+
+      &:last-child {
+        color: ${theme.colors.error};
+      }
     }
   `};
 `;
@@ -477,7 +483,7 @@ export const CustomerBlockItemHeaderTexts = styled.div`
     color: ${theme.colors.grey};
 
     > h4 {
-      margin: 0 0 4px 0;
+      margin: 0 0 8px 0;
       font-size: 1.6rem;
     }
 
@@ -486,4 +492,46 @@ export const CustomerBlockItemHeaderTexts = styled.div`
       font-size: 1.2rem;
     }
  `};
+`;
+
+export const Tag = styled.div`
+  background-color: rgba(0, 189, 19, 0.2);
+  color: #059B14;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
+  padding: 4px 8px;
+  border-radius: 2px;
+  
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const EmptyBox = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    border-radius: 4px;
+    padding: 24px;
+    color: ${theme.colors.grey};
+    height: 180px;
+    border: 1px dashed ${theme.colors.grey};
+
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > svg {
+      margin: 0 0 8px 0;
+      font-size: 1.4rem;
+    }
+
+    > h3 {
+      letter-spacing: -0.2px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 2.2rem;
+    }
+  `};
 `;
