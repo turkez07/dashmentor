@@ -203,7 +203,7 @@ const Customers: React.FC = () => {
           ) : (
             <EmptyBox>
               <RiInformationLine />
-              <h3>Nenhum cliente com filtro digitado.</h3>
+              <h3>Nenhum cliente com o filtro digitado.</h3>
             </EmptyBox>
           )}
         </CustomerBlocks>
