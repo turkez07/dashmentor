@@ -176,7 +176,6 @@ export const ChartBox = styled.div<{ hidden?: boolean }>`
     flex: 1;
     border-radius: 8px;
     padding: 24px;
-    width: 100%;
     position: relative;
     transition: all 300ms ease-out 0s;
     border: 1px solid transparent;
@@ -574,7 +573,6 @@ export const LeftDataLine = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 100%;
-    /* height: 180px; */
 
     text {
       fill: ${theme.colors.grey} !important;

@@ -146,11 +146,11 @@ const Reports: React.FC = () => {
                 defs={[
                   linearGradientDef('gradientA', [
                     { offset: 0, color: 'inherit' },
-                    { offset: 90, color: 'inherit', opacity: 0 },
+                    { offset: 80, color: 'inherit', opacity: 0 },
                   ]),
                   linearGradientDef('gradientB', [
                     { offset: 0, color: 'rgba(0, 0, 0, 0)' },
-                    { offset: 90, color: 'inherit' },
+                    { offset: 80, color: 'inherit' },
                   ],
                   {
                     gradientTransform: 'rotate(90 0.5 0.5)',
@@ -160,7 +160,7 @@ const Reports: React.FC = () => {
                     type: 'linearGradient',
                     colors: [
                       { offset: 0, color: '#FFB624' },
-                      { offset: 90, color: 'rgba(0, 0, 0, 0)' },
+                      { offset: 80, color: 'rgba(0, 0, 0, 0)' },
                     ],
                   },
                 ]}
