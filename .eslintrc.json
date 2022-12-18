@@ -42,7 +42,8 @@
     "@typescript-eslint/no-unused-vars": "off",
     "react/jsx-props-no-spreading": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "import/no-duplicates": "off"
   },
   "settings": {
     "import/resolver": {

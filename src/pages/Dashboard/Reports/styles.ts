@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Theme } from '../../../styles/styled';
 
 export const Content = styled.div``;
 
@@ -314,8 +315,7 @@ export const TasksContainer = styled.div`
     margin-top: 24px;
     padding: 22px;
     box-shadow: ${theme.shadows.default};
-    max-width: 40%;
-    width: 100%;
+    flex: 1;
 
     @media (max-width: 768px) {
       background-color: transparent;
@@ -356,6 +356,7 @@ export const TasksContent = styled.div`
   margin-top: 30px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
 
   @media (max-width: 768px) {
@@ -365,6 +366,7 @@ export const TasksContent = styled.div`
 
 export const Checklist = styled.div`
   flex: 1;
+  width: 100%;
   @media (max-width: 768px) {
     display: none;
   }
@@ -400,9 +402,9 @@ export const ProgressBar = styled.div`
 
 export const RoundedPercentage = styled.div`
   ${({ theme }) => css`
-    margin-right: 20px;
     width: 120px;
     height: 120px;
+    margin: 0 20px 18px 0;
 
     @media (max-width: 768px) {
       width: 81px;
@@ -519,6 +521,7 @@ export const Item = styled.div<ChecklistProps>`
 
 export const Steps = styled.div`
   display: flex;
+  margin: 0 8px;
 `;
 
 export const Step = styled.div<StepProps>`
@@ -550,5 +553,187 @@ export const Step = styled.div<StepProps>`
         border-radius: 50px;
       }
     `}
+  `};
+`;
+
+export const DataWrapper = styled.div`
+  /* width: 100%; */
+  height: 100%;
+  min-height: 17.6rem;
+  height: 17.6rem;
+  margin: 30px 0 0 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
+  flex: 1 1 0%;
+`;
+
+export const LeftDataLine = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+    /* height: 180px; */
+
+    text {
+      fill: ${theme.colors.grey} !important;
+      font-family: 'Archivo', 'Inter', Helvetica, Arial, sans-serif !important;
+    }
+  `};
+`;
+
+export const LeftData = styled.div`
+  ${({ theme }) => css`
+    max-width: 65%;
+    width: 100%;
+    height: 100%;
+
+    text {
+      fill: ${theme.colors.grey} !important;
+      font-family: 'Archivo', 'Inter', Helvetica, Arial, sans-serif !important;
+    }
+  `};
+`;
+
+export const ContentChartLine = styled.div`
+   ${({ theme }) => css`
+    background: ${theme.colors.secondaryBackground};
+    border-radius: 8px;
+    margin-top: 24px;
+    padding: 22px 0;
+    box-shadow: ${theme.shadows.default};
+    flex: 1;
+
+    > small {
+      color: rgba(27, 27, 27, 0.5);
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+  `};
+`;
+
+export const ContentChart = styled.div`
+  ${({ theme }) => css`
+    background: ${theme.colors.secondaryBackground};
+    border-radius: 8px;
+    margin-top: 24px;
+    padding: 22px;
+    box-shadow: ${theme.shadows.default};
+    flex: 1;
+
+    > small {
+      color: rgba(27, 27, 27, 0.5);
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+  `};
+`;
+
+export const ContentRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 18px;
+`;
+
+export const ContentChartHeaderLine = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 30px 0;
+    padding: 0 22px;
+
+    > h4 {
+      color: ${theme.colors.grey};
+      font-size: 1.4rem;
+      font-weight: bold;
+
+      @media (max-width: 768px) {
+        color: white;
+        font-size: 1rem;
+      }
+    }
+
+    > button {
+      background-color: transparent;
+
+      > svg {
+        font-size: 1.4rem;
+        color: ${theme.colors.primary};
+      }
+    }
+  `};
+`;
+
+export const ContentChartHeader = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 30px 0;
+
+    > h4 {
+      color: ${theme.colors.grey};
+      font-size: 1.4rem;
+      font-weight: bold;
+
+      @media (max-width: 768px) {
+        color: white;
+        font-size: 1rem;
+      }
+    }
+
+    > button {
+      background-color: transparent;
+
+      > svg {
+        font-size: 1.4rem;
+        color: ${theme.colors.primary};
+      }
+    }
+  `};
+`;
+
+export const RightData = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    > span {
+      color: ${theme.colors.grey};
+      margin: 0 0 2px 0;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+  `};
+`;
+
+export type DataValueType = {
+  income?: boolean;
+  outcome?: boolean;
+};
+
+const getDataColor = (
+  colors: Theme['colors'],
+  { income, outcome }: DataValueType,
+): string => {
+  if (income) {
+    return colors.success;
+  }
+  if (outcome) {
+    return colors.error;
+  }
+  return colors.grey;
+};
+
+export const DataValue = styled.div<DataValueType>`
+  ${({ theme, income, outcome }) => css`
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 111.5%;
+    margin: 0 0 8px 0;
+    color: ${getDataColor(theme.colors, { income, outcome })};
   `};
 `;
