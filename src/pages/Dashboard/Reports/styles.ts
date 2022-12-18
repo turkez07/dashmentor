@@ -191,9 +191,13 @@ export const ChartBox = styled.div<{ hidden?: boolean }>`
       border-color: ${theme.colors.primary};
     }
 
-    > svg {
-      font-size: 1.4rem;
-      color: ${theme.colors.primary};
+    > button {
+      background-color: transparent;
+
+      > svg {
+        font-size: 1.4rem;
+        color: ${theme.colors.primary};
+      }
     }
 
     > div {
@@ -270,6 +274,7 @@ export const ChartBoxTexts = styled.div`
       font-size: 2.4rem;
       font-weight: 400;
       position: relative;
+      transition: ${theme.transition.default};
     }
 
     > small {

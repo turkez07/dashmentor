@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  RiWalletLine, RiArrowRightSLine, RiUser4Line, RiTodoLine, RiEyeLine,
+  RiWalletLine, RiArrowRightSLine, RiUser4Line, RiTodoLine, RiEyeLine, RiEyeOffLine,
 } from 'react-icons/ri';
 
 import {
@@ -36,12 +36,13 @@ const Reports: React.FC = () => {
             <ChartBoxTexts>
               <small>Vendas</small>
               <h4>
-                <HideBlock />
-                $95.031,48
+                {hiddenValue ? '••••' : '$95.031,48'}
               </h4>
             </ChartBoxTexts>
           </ChartBoxHeader>
-          <RiEyeLine onClick={() => setHiddenValue((prev) => !prev)} />
+          <button type="button" onClick={() => setHiddenValue((prev) => !prev)}>
+            {hiddenValue ? <RiEyeLine /> : <RiEyeOffLine />}
+          </button>
         </ChartBox>
 
         <ChartBox hidden={hiddenValue}>
@@ -52,12 +53,13 @@ const Reports: React.FC = () => {
             <ChartBoxTexts>
               <small>Clientes</small>
               <h4>
-                <HideBlock />
-                150
+                {hiddenValue ? '••••' : '150'}
               </h4>
             </ChartBoxTexts>
           </ChartBoxHeader>
-          <RiEyeLine onClick={() => setHiddenValue((prev) => !prev)} />
+          <button type="button" onClick={() => setHiddenValue((prev) => !prev)}>
+            {hiddenValue ? <RiEyeLine /> : <RiEyeOffLine />}
+          </button>
         </ChartBox>
 
         <ChartBox hidden={hiddenValue}>
@@ -68,12 +70,13 @@ const Reports: React.FC = () => {
             <ChartBoxTexts>
               <small>Tarefas</small>
               <h4>
-                <HideBlock />
-                29
+                {hiddenValue ? '••••' : '29'}
               </h4>
             </ChartBoxTexts>
           </ChartBoxHeader>
-          <RiEyeLine onClick={() => setHiddenValue((prev) => !prev)} />
+          <button type="button" onClick={() => setHiddenValue((prev) => !prev)}>
+            {hiddenValue ? <RiEyeLine /> : <RiEyeOffLine />}
+          </button>
         </ChartBox>
       </MainContentCharts>
 
