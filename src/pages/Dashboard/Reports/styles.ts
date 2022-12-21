@@ -35,9 +35,10 @@ export const ToggleButton = styled.div<{ toggled?: boolean }>`
 `;
 
 export const MainContentCharts = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
+  grid-gap: 18px;
 `;
 
 export const CalendarDropdDown = styled.div`
@@ -173,7 +174,6 @@ export const TableItemIcon = styled.div`
 export const ChartBox = styled.div<{ hidden?: boolean }>`
   ${({ theme, hidden }) => css`
     background-color: ${theme.colors.secondaryBackground};
-    flex: 1;
     border-radius: 8px;
     padding: 24px;
     position: relative;
@@ -314,7 +314,6 @@ export const TasksContainer = styled.div`
     margin-top: 24px;
     padding: 22px;
     box-shadow: ${theme.shadows.default};
-    flex: 1;
 
     @media (max-width: 768px) {
       background-color: transparent;
@@ -364,7 +363,6 @@ export const TasksContent = styled.div`
 `;
 
 export const Checklist = styled.div`
-  flex: 1;
   width: 100%;
   @media (max-width: 768px) {
     display: none;
@@ -385,6 +383,12 @@ export const ProgressBar = styled.div`
 
     > span {
       color: ${theme.colors.grey};
+      display: flex;
+      align-items: center;
+
+      > b {
+        margin: 0 6px 0 0;
+      }
     }
 
     @media (max-width: 768px) {
@@ -566,12 +570,12 @@ export const DataWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-top: auto;
-  flex: 1 1 0%;
 `;
 
 export const LeftDataLine = styled.div`
   ${({ theme }) => css`
-    width: 100%;
+    width: 200px;
+    flex: 1;
     height: 100%;
 
     text {
@@ -601,7 +605,6 @@ export const ContentChartLine = styled.div`
     margin-top: 24px;
     padding: 22px 0;
     box-shadow: ${theme.shadows.default};
-    flex: 1;
 
     > small {
       color: rgba(27, 27, 27, 0.5);
@@ -618,7 +621,6 @@ export const ContentChart = styled.div`
     margin-top: 24px;
     padding: 22px;
     box-shadow: ${theme.shadows.default};
-    flex: 1;
 
     > small {
       color: rgba(27, 27, 27, 0.5);
@@ -629,10 +631,10 @@ export const ContentChart = styled.div`
 `;
 
 export const ContentRow = styled.div`
-  display: flex;
+  display: grid;
   align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 18px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px;
 `;
 
 export const ContentChartHeaderLine = styled.div`
@@ -733,5 +735,15 @@ export const DataValue = styled.div<DataValueType>`
     line-height: 111.5%;
     margin: 0 0 8px 0;
     color: ${getDataColor(theme.colors, { income, outcome })};
+  `};
+`;
+
+export const CustomTooltip = styled.div`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.background};
+    color: ${theme.colors.grey};
+    font-size: 1.4rem;
+    padding: 8px;
+    border-radius: 4px;
   `};
 `;

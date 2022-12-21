@@ -3,11 +3,16 @@ import { ResponsiveBar } from '@nivo/bar';
 import { ResponsiveLine } from '@nivo/line';
 
 import {
-  RiWalletLine, RiArrowRightSLine, RiUser4Line, RiTodoLine, RiEyeLine, RiEyeOffLine,
+  RiWalletLine,
+  RiArrowRightSLine,
+  RiUser4Line,
+  RiTodoLine,
+  RiEyeLine,
+  RiEyeOffLine,
 } from 'react-icons/ri';
 
 import { linearGradientDef } from '@nivo/core';
-import { generateStatements, generateInvestments } from '../../../utils';
+import { generateStatements, generateInvestments, formatCurrency } from '../../../utils';
 
 import {
   Container,
@@ -36,6 +41,7 @@ import {
   ContentRow,
   RightData,
   DataValue,
+  CustomTooltip,
 } from './styles';
 
 const hiddenStatements = generateStatements(false);
@@ -43,8 +49,8 @@ const hiddenInvestments = generateInvestments(false)?.timeline;
 
 const Reports: React.FC = () => {
   const [hiddenValue, setHiddenValue] = useState<boolean>(false);
-  const [displayStatement, setDisplayStatement] = useState<boolean>(false);
-  const [displayInvestments, setDisplayInvestments] = useState<boolean>(false);
+  const [displayStatement, setDisplayStatement] = useState<boolean>(true);
+  const [displayInvestments, setDisplayInvestments] = useState<boolean>(true);
   const statements = generateStatements(true);
   const investments = generateInvestments(true);
 
@@ -58,9 +64,7 @@ const Reports: React.FC = () => {
             </ChartBoxIcon>
             <ChartBoxTexts>
               <small>Vendas</small>
-              <h4>
-                {hiddenValue ? '••••' : '$95.031,48'}
-              </h4>
+              <h4>{hiddenValue ? '••••' : '$95.031,48'}</h4>
             </ChartBoxTexts>
           </ChartBoxHeader>
           <button type="button" onClick={() => setHiddenValue((prev) => !prev)}>
@@ -75,9 +79,7 @@ const Reports: React.FC = () => {
             </ChartBoxIcon>
             <ChartBoxTexts>
               <small>Clientes</small>
-              <h4>
-                {hiddenValue ? '••••' : '150'}
-              </h4>
+              <h4>{hiddenValue ? '••••' : '150'}</h4>
             </ChartBoxTexts>
           </ChartBoxHeader>
           <button type="button" onClick={() => setHiddenValue((prev) => !prev)}>
@@ -92,9 +94,7 @@ const Reports: React.FC = () => {
             </ChartBoxIcon>
             <ChartBoxTexts>
               <small>Tarefas</small>
-              <h4>
-                {hiddenValue ? '••••' : '29'}
-              </h4>
+              <h4>{hiddenValue ? '••••' : '29'}</h4>
             </ChartBoxTexts>
           </ChartBoxHeader>
           <button type="button" onClick={() => setHiddenValue((prev) => !prev)}>
@@ -107,21 +107,27 @@ const Reports: React.FC = () => {
         <ContentChartLine>
           <ContentChartHeaderLine>
             <h4>Lucro</h4>
-            <button type="button" onClick={() => setDisplayInvestments((prev) => !prev)}>
-              {displayInvestments ? <RiEyeLine /> : <RiEyeOffLine />}
+            <button
+              type="button"
+              onClick={() => setDisplayInvestments((prev) => !prev)}
+            >
+              {displayInvestments ? <RiEyeOffLine /> : <RiEyeLine />}
             </button>
           </ContentChartHeaderLine>
           <DataWrapper>
             <LeftDataLine>
               <ResponsiveLine
                 data={
-                displayInvestments ? investments.timeline : hiddenInvestments
-              }
-                useMesh={false}
+                  displayInvestments ? investments.timeline : hiddenInvestments
+                }
+                useMesh
                 enableCrosshair={false}
                 curve="cardinal"
                 margin={{
-                  top: 12, right: 1, bottom: 42, left: 1,
+                  top: 12,
+                  right: 1,
+                  bottom: 42,
+                  left: 1,
                 }}
                 enableArea
                 xScale={{ type: 'point' }}
@@ -146,21 +152,24 @@ const Reports: React.FC = () => {
                 defs={[
                   linearGradientDef('gradientA', [
                     { offset: 0, color: 'inherit' },
-                    { offset: 80, color: 'inherit', opacity: 0 },
+                    { offset: 70, color: 'inherit', opacity: 0 },
                   ]),
-                  linearGradientDef('gradientB', [
-                    { offset: 0, color: 'rgba(0, 0, 0, 0)' },
-                    { offset: 80, color: 'inherit' },
-                  ],
-                  {
-                    gradientTransform: 'rotate(90 0.5 0.5)',
-                  }),
+                  linearGradientDef(
+                    'gradientB',
+                    [
+                      { offset: 0, color: 'transparent' },
+                      { offset: 70, color: 'inherit' },
+                    ],
+                    {
+                      gradientTransform: 'rotate(90 0.5 0.5)',
+                    },
+                  ),
                   {
                     id: 'gradientC',
                     type: 'linearGradient',
                     colors: [
                       { offset: 0, color: '#FFB624' },
-                      { offset: 80, color: 'rgba(0, 0, 0, 0)' },
+                      { offset: 70, color: 'transparent' },
                     ],
                   },
                 ]}
@@ -168,6 +177,9 @@ const Reports: React.FC = () => {
                   { match: { id: 'react' }, id: 'gradientA' },
                   { match: '*', id: 'gradientC' },
                 ]}
+                tooltip={({ point }) => (
+                  <CustomTooltip>{`${point.data.yFormatted}%`}</CustomTooltip>
+                )}
               />
             </LeftDataLine>
           </DataWrapper>
@@ -176,8 +188,11 @@ const Reports: React.FC = () => {
         <ContentChart>
           <ContentChartHeader>
             <h4>Extrato</h4>
-            <button type="button" onClick={() => setDisplayStatement((prev) => !prev)}>
-              {displayStatement ? <RiEyeLine /> : <RiEyeOffLine />}
+            <button
+              type="button"
+              onClick={() => setDisplayStatement((prev) => !prev)}
+            >
+              {displayStatement ? <RiEyeOffLine /> : <RiEyeLine />}
             </button>
           </ContentChartHeader>
           <DataWrapper>
@@ -188,7 +203,10 @@ const Reports: React.FC = () => {
                 keys={['outcome', 'income']}
                 colors={({ id, data }: any) => data[`${id}Color`]}
                 margin={{
-                  top: 8, right: -8, bottom: 42, left: -8,
+                  top: 8,
+                  right: -8,
+                  bottom: 42,
+                  left: -8,
                 }}
                 padding={0.88}
                 borderRadius={2}
@@ -203,9 +221,7 @@ const Reports: React.FC = () => {
                 tooltip={(chart: any) => {
                   const label = chart.id === 'income' ? 'Receita' : 'Despesas';
                   const value = chart.data[chart.id];
-                  return (
-                    <h1>oi</h1>
-                  );
+                  return <CustomTooltip>{`${formatCurrency(value)}`}</CustomTooltip>;
                 }}
                 theme={{
                   tooltip: {
