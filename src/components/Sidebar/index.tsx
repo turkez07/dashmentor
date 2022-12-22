@@ -48,7 +48,7 @@ const Sidebar = ({ toggled }: SidebarProps): any => {
             <Tag>Novo!</Tag>
           </Item>
         </NavLink>
-        <NavLink to="Mentorships" className={attributteClassName}>
+        <NavLink to="mentorships" className={attributteClassName}>
           <Item>
             <RiGroupLine />
             <span>Mentorias</span>

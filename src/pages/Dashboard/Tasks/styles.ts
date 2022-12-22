@@ -160,7 +160,7 @@ export const SearchInput = styled.div`
         border-color: ${theme.colors.primary};
       }
     }
-  
+
     > svg {
       position: absolute;
       left: 18px;
@@ -189,5 +189,118 @@ export const LeftContent = styled.div`
 `;
 
 export const RightContent = styled.div`
-  flex: 1;
+  ${({ theme }) => css`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 48px;
+    
+    > h3 {
+      color: ${theme.colors.grey};
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin: 0 0 30px 0;
+    }
+  `};
+`;
+
+export const TasksList = styled.div`
+  ${({ theme }) => css`
+    margin: 20px 0 0 0;
+  `};
+`;
+
+export const TaskItem = styled.div<{ checked?: boolean }>`
+  ${({ theme, checked }) => css`
+    display: flex;
+    align-items: center;
+
+    border: 1px dashed rgba(53, 60, 72, 0.3);
+    border-radius: 4px;
+    padding: 12px;
+
+    :not(:last-child) {
+      margin: 0 0 12px 0;
+    }
+
+    ${checked
+    && css`
+      border-color: ${theme.colors.primary};
+    `}
+  `};
+`;
+
+export const TaskItemTexts = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 0 0 12px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: ${theme.colors.grey};
+
+    > small {
+      opacity: 0.3;
+      margin: 4px 0 0 0;
+      font-size: 1.2rem;
+    }
+  `};
+`;
+
+export const RoundedPercentage = styled.div`
+  ${({ theme }) => css`
+    width: 180px;
+    height: 180px;
+
+    @media (max-width: 768px) {
+      width: 81px;
+      height: 81px;
+    }
+
+    .circular-chart {
+      display: block;
+      margin: 0 auto;
+      max-height: 250px;
+    }
+
+    .circle-bg {
+      fill: none;
+      stroke: rgba(232, 232, 232, 0.5);
+      stroke-width: 2;
+    }
+
+    .circle {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke: #fbbc05;
+      animation: progress 1s ease-out forwards;
+    }
+
+    @keyframes progress {
+      0% {
+        stroke-dasharray: 0 100;
+      }
+    }
+
+    .percentage {
+      fill: #fbbc05;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-anchor: middle;
+
+      display: flex;
+    }
+
+    .percentage_small {
+      fill: #FBBC05;
+      opacity: 0.6;
+      font-size: 0.22em;
+      font-weight: bold;
+      text-anchor: middle;
+
+      display: flex;
+    }
+  `}
 `;
