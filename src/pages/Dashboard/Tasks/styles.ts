@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import Rows from '../../../assets/Rows.svg';
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -190,7 +191,6 @@ export const LeftContent = styled.div`
 
 export const RightContent = styled.div`
   ${({ theme }) => css`
-    flex: 1;
     display: flex;
     flex-direction: column;
     margin: 0 0 0 48px;
@@ -217,7 +217,7 @@ export const TaskItem = styled.div<{ checked?: boolean }>`
 
     border: 1px dashed rgba(53, 60, 72, 0.3);
     border-radius: 4px;
-    padding: 12px;
+    padding: 18px 24px;
 
     :not(:last-child) {
       margin: 0 0 12px 0;
@@ -227,6 +227,13 @@ export const TaskItem = styled.div<{ checked?: boolean }>`
     && css`
       border-color: ${theme.colors.primary};
     `}
+
+    > svg {
+      color: ${theme.colors.error};
+      font-size: 1.2rem;
+      margin-left: auto;
+      cursor: pointer;
+    }
   `};
 `;
 
@@ -243,15 +250,24 @@ export const TaskItemTexts = styled.div`
     > small {
       opacity: 0.3;
       margin: 4px 0 0 0;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   `};
 `;
 
+export const PercentageContainer = styled.div`
+  background-color: red;
+  display: flex;
+  justify-content: flex-start;
+  background: url(${Rows}) center center no-repeat;
+  background-size: cover;
+  padding: 32px;
+`;
+
 export const RoundedPercentage = styled.div`
   ${({ theme }) => css`
-    width: 180px;
-    height: 180px;
+    width: 190px;
+    height: 190px;
 
     @media (max-width: 768px) {
       width: 81px;

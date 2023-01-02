@@ -4,7 +4,6 @@ import {
   RiAlignJustify,
   RiFunctionLine,
   RiMessage2Line,
-  RiCloseLine,
   RiEditLine,
   RiEyeLine,
   RiDeleteBinLine,
@@ -96,7 +95,7 @@ const Customers: React.FC = () => {
                 setToggledModal(true);
               }}
             >
-              Novo cliente
+              Criar cliente
             </button>
           </ContentHeaderButtons>
         </ContentHeaderTexts>

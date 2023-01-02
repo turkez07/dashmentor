@@ -66,12 +66,12 @@ const Sidebar = ({ toggled }: SidebarProps): any => {
             <span>Clientes</span>
           </Item>
         </NavLink>
-        <NavLink to="calendar" className={attributteClassName}>
+        {/* <NavLink to="calendar" className={attributteClassName}>
           <Item>
             <RiCalendarLine />
             <span>Agenda</span>
           </Item>
-        </NavLink>
+        </NavLink> */}
 
         <Item onClick={() => handleLogout()}>
           <RiLogoutBoxLine />
