@@ -206,7 +206,7 @@ export const ContentHeaderButtons = styled.div`
     display: flex;
     align-items: center;
 
-    > button {
+    > a > button {
       background-color: ${theme.colors.primary};
       border-radius: 4px;
       color: ${theme.colors.white};

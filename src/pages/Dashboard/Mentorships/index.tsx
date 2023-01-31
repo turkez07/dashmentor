@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   RiMessage2Line,
   RiEditLine,
@@ -49,7 +50,9 @@ const Mentorships: React.FC = () => {
         <ContentHeaderTexts>
           <h2>Mentorias</h2>
           <ContentHeaderButtons>
-            <button type="button">Criar mentoria</button>
+            <Link to="/mentorships/new">
+              <button type="button">Criar mentoria</button>
+            </Link>
           </ContentHeaderButtons>
         </ContentHeaderTexts>
         <ContentHeaderSub>
@@ -82,7 +85,7 @@ const Mentorships: React.FC = () => {
                   <Tag>{currencyBRL.format(mentorship?.commission)}</Tag>
                 </CustomersTableContentRowItem>
                 <CustomersTableContentRowItem>
-                  {JSON.stringify(mentorship?.releaseDate)}
+                  {new Intl.DateTimeFormat('pt-BR').format(mentorship?.releaseDate)}
                 </CustomersTableContentRowItem>
                 <CustomersTableContentRowItem>
                   <RiEditLine />

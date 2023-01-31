@@ -362,8 +362,9 @@ export const TasksContent = styled.div`
   }
 `;
 
-export const Checklist = styled.div`
+export const Checklist = styled.form`
   width: 100%;
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -453,7 +454,6 @@ export const RoundedPercentage = styled.div`
 
 export const Item = styled.div<ChecklistProps>`
   ${({ theme, checked }) => css`
-    background-color: rgba(0, 0, 0, 0.2);
     padding: 4px 5px;
     border-radius: 4px;
     margin-bottom: 7px;
@@ -492,7 +492,7 @@ export const Item = styled.div<ChecklistProps>`
       content: '';
       -webkit-appearance: none;
       background-color: ${theme.colors.secondaryBackground};
-      border: 2px solid ${theme.colors.secondaryBackground};
+      border: 1px solid ${theme.colors.background};
       border-radius: 2px;
       min-height: 8px;
       min-width: 8px;

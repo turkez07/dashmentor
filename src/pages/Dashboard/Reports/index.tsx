@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import { ResponsiveLine } from '@nivo/line';
+import { linearGradientDef } from '@nivo/core';
 
 import {
   RiWalletLine,
@@ -11,7 +12,6 @@ import {
   RiEyeOffLine,
 } from 'react-icons/ri';
 
-import { linearGradientDef } from '@nivo/core';
 import { generateStatements, generateInvestments, formatCurrency } from '../../../utils';
 
 import {
@@ -47,12 +47,14 @@ import {
 const hiddenStatements = generateStatements(false);
 const hiddenInvestments = generateInvestments(false)?.timeline;
 
+const statements = generateStatements(true);
+const investments = generateInvestments(true);
+
 const Reports: React.FC = () => {
   const [hiddenValue, setHiddenValue] = useState<boolean>(false);
+
   const [displayStatement, setDisplayStatement] = useState<boolean>(true);
   const [displayInvestments, setDisplayInvestments] = useState<boolean>(true);
-  const statements = generateStatements(true);
-  const investments = generateInvestments(true);
 
   return (
     <Container>
@@ -219,7 +221,6 @@ const Reports: React.FC = () => {
                   tickRotation: 0,
                 }}
                 tooltip={(chart: any) => {
-                  const label = chart.id === 'income' ? 'Receita' : 'Despesas';
                   const value = chart.data[chart.id];
                   return <CustomTooltip>{`${formatCurrency(value)}`}</CustomTooltip>;
                 }}
@@ -286,7 +287,7 @@ const Reports: React.FC = () => {
                 <label>Troque seu avatar</label>
               </Item>
               <Item checked>
-                <input type="checkbox" defaultChecked />
+                <input type="checkbox" />
                 <label>Preencha seu perfil</label>
               </Item>
               <Item>

@@ -7,6 +7,7 @@ import SignIn from '../pages/SignIn';
 // Dashboard authenticated navigation routes.
 import Dashboard from '../pages/Dashboard';
 import Reports from '../pages/Dashboard/Reports';
+import NewMentorship from '../pages/Dashboard/Mentorships/NewMentorship';
 import Mentorships from '../pages/Dashboard/Mentorships';
 import Tasks from '../pages/Dashboard/Tasks';
 import Customers from '../pages/Dashboard/Customers';
@@ -18,15 +19,21 @@ const Router: React.FC = () => {
   return (
     <Routes>
       {signed ? (
-        <Route path="/" element={<Dashboard />}>
+        <Route path="" element={<Dashboard />}>
           <Route index element={<Reports />} />
-          <Route path="mentorships" element={<Mentorships />} />
+          <Route path="mentorships">
+            <Route index path="" element={<Mentorships />} />
+            <Route path="new" element={<NewMentorship />} />
+          </Route>
           <Route path="tasks" element={<Tasks />} />
           <Route path="customers" element={<Customers />} />
           <Route path="calendar" element={<Calendar />} />
         </Route>
       ) : (
-        <Route path="/" element={<SignIn />} />
+        <>
+          <Route path="/" element={<SignIn />} />
+          <Route path="*" element={<h1>Carregando...</h1>} />
+        </>
       )}
     </Routes>
   );

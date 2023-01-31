@@ -19,6 +19,7 @@ import {
   TaskItemTexts,
   RoundedPercentage,
   PercentageContainer,
+  PercentageTexts,
 } from './styles';
 
 const Tasks: React.FC = () => {
@@ -96,14 +97,15 @@ const Tasks: React.FC = () => {
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"
                 />
-                <text x="18" y="19" className="percentage">
-                  2
-                </text>
-                <text x="18" y="22.70" className="percentage_small">
-                  de 4
+                <text x="18" y="20" className="percentage">
+                  50%
                 </text>
               </svg>
             </RoundedPercentage>
+            <PercentageTexts>
+              <small>Nível de conclusão:</small>
+              <h3>2/4 Tarefas</h3>
+            </PercentageTexts>
           </PercentageContainer>
 
         </RightContent>

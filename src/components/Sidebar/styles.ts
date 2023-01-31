@@ -74,7 +74,7 @@ export const MenuItems = styled.div`
     > a.isActive {
       ${Item} {
         color: ${theme.colors.grey};
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: ${`${theme.colors.primary}0C`};
       }
     }
   `};

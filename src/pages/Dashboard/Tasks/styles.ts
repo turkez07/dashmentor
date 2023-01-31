@@ -256,18 +256,33 @@ export const TaskItemTexts = styled.div`
 `;
 
 export const PercentageContainer = styled.div`
-  background-color: red;
   display: flex;
-  justify-content: flex-start;
-  background: url(${Rows}) center center no-repeat;
-  background-size: cover;
-  padding: 32px;
+  align-items: center;
+`;
+
+export const PercentageTexts = styled.div`
+  ${({ theme }) => css`
+    margin: 0 0 0 16px;
+    color: ${theme.colors.grey};
+
+    > small {
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+    }
+
+    > h3 {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+  `};
 `;
 
 export const RoundedPercentage = styled.div`
   ${({ theme }) => css`
-    width: 190px;
-    height: 190px;
+    width: 90px;
+    height: 90px;
 
     @media (max-width: 768px) {
       width: 81px;
@@ -307,16 +322,7 @@ export const RoundedPercentage = styled.div`
       text-anchor: middle;
 
       display: flex;
-    }
-
-    .percentage_small {
-      fill: #FBBC05;
-      opacity: 0.6;
-      font-size: 0.22em;
-      font-weight: bold;
-      text-anchor: middle;
-
-      display: flex;
+      align-items: center;
     }
   `}
 `;
