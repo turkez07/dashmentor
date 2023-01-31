@@ -11,22 +11,22 @@ import {
   InputControl,
 } from './styles';
 
-interface LevelsModalProps {
+interface OnboardingModalProps {
   modalType: 'new' | 'edit' | 'view';
   toggleModal: () => void;
   toggled: boolean;
   selectedLevel: number | string;
 }
 
-const LevelsModal = ({
+const OnboardingModal = ({
   toggleModal, modalType, toggled, selectedLevel,
-}: LevelsModalProps): any => {
+}: OnboardingModalProps): any => {
   const [customerInformations, setCustomerInformations] = useState({} as any);
 
   const titleTexts = {
-    new: 'Novo nível',
-    edit: 'Editar nível',
-    view: 'Nível',
+    new: 'Novo conteúdo',
+    edit: 'Editar conteúdo',
+    view: 'Conteúdo',
   };
 
   useEffect(() => {
@@ -49,29 +49,24 @@ const LevelsModal = ({
       <CustomerModalContent>
         <CustomerModalForm>
           <InputControl>
-            <small>Nome do nível</small>
-            <input type="text" placeholder="Ex: Gold Experience" defaultValue={customerInformations?.name || ''} disabled={modalType === 'view'} />
+            <small>Nome do conteúdo</small>
+            <input type="text" placeholder="Ex: Nome do conteúdo" defaultValue={customerInformations?.name || ''} disabled={modalType === 'view'} />
           </InputControl>
           <InputControl>
-            <small>Tipo de entrega da mentoria</small>
+            <small>Descrição</small>
             <input
               type="text"
-              placeholder="Ex: Mentoria individual"
+              placeholder="Ex: Descrição do conteúdo"
               disabled={modalType === 'view'}
             />
           </InputControl>
           <InputControl>
-            <small>Preço</small>
-            <input type="text" placeholder="R$ 1.800,00" defaultValue={customerInformations?.address?.city || ''} disabled={modalType === 'view'} />
+            <small>Link do vídeo</small>
+            <input type="text" placeholder="Ex: https://www.youtube.com/watch?v=" defaultValue={customerInformations?.address?.city || ''} disabled={modalType === 'view'} />
           </InputControl>
           <InputControl>
-            <small>Formato</small>
-            <select>
-              <option value="">Prazo de entrega da Mentoria</option>
-              <option value="Tempo de duração de uma única sessão">Tempo de duração de uma única sessão</option>
-              <option value="Quantidade de Sessões">Quantidade de Sessões</option>
-              <option value="Tempo de suporte">Tempo de suporte</option>
-            </select>
+            <small>Link do PDF</small>
+            <input type="text" placeholder="Ex: https://www.link-do-pdf.com" defaultValue={customerInformations?.address?.city || ''} disabled={modalType === 'view'} />
           </InputControl>
           {modalType !== 'view' && (
           <button type="button" onClick={toggleModal}>
@@ -84,4 +79,4 @@ const LevelsModal = ({
   );
 };
 
-export default LevelsModal;
+export default OnboardingModal;
