@@ -55,7 +55,7 @@ export const TabNavigationHeaderItem = styled.div<{ active?: boolean }>`
         background-color: ${theme.colors.primary};
 
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
       }
     `};
   `};

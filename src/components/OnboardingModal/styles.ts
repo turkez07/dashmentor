@@ -107,7 +107,7 @@ export const InputControl = styled.div`
 
     > input, select {
       border-radius: 4px;
-      background-color: rgba(0,0,0,0.2);
+      background-color: rgba(0,0,0,0.05);
       border: 0;
       height: 50px;
       padding: 12px 16px;

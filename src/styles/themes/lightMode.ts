@@ -4,7 +4,7 @@ const lightMode = {
     primaryDark: '#51B56D',
     background: '#FFFFFF',
     secondaryBackground: '#F4F4F4',
-    grey: '#8C91A5',
+    grey: '#646876',
     white: '#FFFFFF',
     success: '#20C05C',
     orange: '#e67e22',
