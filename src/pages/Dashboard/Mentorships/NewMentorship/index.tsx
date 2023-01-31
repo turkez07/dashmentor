@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CheckList from './CheckList';
 import Anticipation from './Anticipation';
 import Levels from './Levels';
+import Structure from './Structure';
 
 import {
   Container,
@@ -10,13 +11,14 @@ import {
   TabNavigationHeader,
   TabNavigationHeaderItem,
   TabNavigationContent,
+  NavigationBottom,
 } from './styles';
 
 const tabNavigationItems = [
   { title: 'Níveis de acesso', element: <Levels /> },
   { title: 'Onboarding', element: <Anticipation /> },
-  { title: 'Estrutura', element: '' },
-  { title: 'Checklist', element: <CheckList /> },
+  { title: 'Estrutura', element: <Structure /> },
+  // { title: 'Checklist', element: <CheckList /> },
 ];
 
 const NewMentorship: React.FC = () => {
@@ -41,6 +43,9 @@ const NewMentorship: React.FC = () => {
           {tabNavigationItems[currentTabIndex]?.element ?? <h2>Nenhum conteúdo..</h2>}
         </TabNavigationContent>
       </TabNavigation>
+      <NavigationBottom>
+        <button type="button">Salvar mentoria</button>
+      </NavigationBottom>
     </Container>
   );
 };

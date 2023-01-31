@@ -17,9 +17,7 @@ export const TaskItem = styled.div<{ checked?: boolean }>`
     border-radius: 4px;
     padding: 18px 24px;
 
-    :not(:last-child) {
-      margin: 0 0 12px 0;
-    }
+    margin: 0 0 12px 0;
 
     ${checked
     && css`

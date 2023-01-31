@@ -17,6 +17,7 @@ import {
   UserInformations,
   UserImage,
   MenuItems,
+  BottomItems,
   Item,
   Tag,
 } from './styles';
@@ -73,12 +74,14 @@ const Sidebar = ({ toggled }: SidebarProps): any => {
           </Item>
         </NavLink> */}
 
-        <NavLink to="/">
-          <Item onClick={() => handleLogout()}>
-            <RiLogoutBoxLine />
-            <span>Sair</span>
-          </Item>
-        </NavLink>
+        <BottomItems>
+          <NavLink to="/">
+            <Item onClick={() => handleLogout()}>
+              <RiLogoutBoxLine />
+              <span>Sair</span>
+            </Item>
+          </NavLink>
+        </BottomItems>
       </MenuItems>
     </Container>
   );

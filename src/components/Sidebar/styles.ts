@@ -172,3 +172,7 @@ export const UserInformations = styled.div`
     }
   `};
 `;
+
+export const BottomItems = styled.div`
+  margin-top: auto;
+`;

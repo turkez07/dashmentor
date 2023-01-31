@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
     > h1 {
       font-weight: 600;
       font-size: 2.4rem;
@@ -62,3 +66,30 @@ export const TabNavigationHeaderItem = styled.div<{ active?: boolean }>`
 `;
 
 export const TabNavigationContent = styled.div``;
+
+export const NavigationBottom = styled.div`
+  ${({ theme }) => css`
+    margin-top: auto;
+    background-color: ${`${theme.colors.primary}19`};
+    /* border: 1px dashed ${theme.colors.grey}; */
+    padding: 24px;
+    border-radius: 12px;
+
+    position: sticky;
+    bottom: 12px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    > button {
+      border-radius: 4px;
+      height: 42px;
+      padding: 10px 20px;
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.white};
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 2.2rem;
+    }
+  `};
+`;
