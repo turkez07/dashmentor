@@ -4,6 +4,7 @@ import { RiCloseLine } from 'react-icons/ri';
 import {
   Container,
   DeleteModalContent,
+  DeleteModalButtons,
   RoundedIcon,
 } from './styles';
 
@@ -18,19 +19,27 @@ const DeleteModal = ({ handleToggleModal, handleDeleteConfirmation }: DeleteModa
       <RoundedIcon>
         <RiCloseLine />
       </RoundedIcon>
-      <h3>Deseja realmente excluir esse cliente?</h3>
-      <button
-        type="button"
-        onClick={handleDeleteConfirmation}
-      >
-        Excluir
-      </button>
-      <button
-        type="button"
-        onClick={handleToggleModal}
-      >
-        Fechar
-      </button>
+      <h3>
+        Deseja realmente
+        {' '}
+        <br />
+        {' '}
+        excluir esse item?
+      </h3>
+      <DeleteModalButtons>
+        <button
+          type="button"
+          onClick={handleDeleteConfirmation}
+        >
+          Excluir
+        </button>
+        <button
+          type="button"
+          onClick={handleToggleModal}
+        >
+          Fechar
+        </button>
+      </DeleteModalButtons>
     </DeleteModalContent>
   </Container>
 );

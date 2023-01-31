@@ -15,28 +15,28 @@ interface CustomerModalProps {
   modalType: 'new' | 'edit' | 'view';
   toggleModal: () => void;
   toggled: boolean;
-  selectedCustomer: number | string;
+  selectedLevel: number | string;
 }
 
-const CustomerModal = ({
-  toggleModal, modalType, toggled, selectedCustomer,
+const LevelsModal = ({
+  toggleModal, modalType, toggled, selectedLevel,
 }: CustomerModalProps): any => {
   const [customerInformations, setCustomerInformations] = useState({} as any);
 
   const titleTexts = {
-    new: 'Novo cliente',
-    edit: 'Editar cliente',
-    view: 'Cliente',
+    new: 'Novo nível',
+    edit: 'Editar nível',
+    view: 'Nível',
   };
 
   useEffect(() => {
     if (modalType !== 'new') {
-      const resultItem = customers?.find((item) => item?.id === selectedCustomer);
+      const resultItem = customers?.find((item) => item?.id === selectedLevel);
       setCustomerInformations(resultItem);
       return;
     }
     setCustomerInformations({});
-  }, [selectedCustomer, modalType]);
+  }, [selectedLevel, modalType]);
 
   return (
     <Container toggled={toggled}>
@@ -49,20 +49,24 @@ const CustomerModal = ({
       <CustomerModalContent>
         <CustomerModalForm>
           <InputControl>
-            <small>Nome do cliente</small>
-            <input type="text" placeholder="João da Silva Aguiar" defaultValue={customerInformations?.name || ''} disabled={modalType === 'view'} />
+            <small>Nome do nível</small>
+            <input type="text" placeholder="Ex: Gold Experience" defaultValue={customerInformations?.name || ''} disabled={modalType === 'view'} />
+          </InputControl>
+          <InputControl>
+            <small>Tipo de entrega da mentoria</small>
+            <input
+              type="text"
+              placeholder="Ex: Mentoria individual"
+              disabled={modalType === 'view'}
+            />
           </InputControl>
           <InputControl>
             <small>Preço</small>
-            <input type="text" placeholder="R$ 150,00" disabled={modalType === 'view'} />
+            <input type="text" placeholder="R$ 1.800,00" defaultValue={customerInformations?.address?.city || ''} disabled={modalType === 'view'} />
           </InputControl>
           <InputControl>
-            <small>Localização</small>
-            <input type="text" placeholder="Porto Alegre, RS" defaultValue={customerInformations?.address?.city || ''} disabled={modalType === 'view'} />
-          </InputControl>
-          <InputControl>
-            <small>Telefone</small>
-            <input type="text" placeholder="(51) 991 10 5590" defaultValue={customerInformations?.phone || ''} disabled={modalType === 'view'} />
+            <small>Formato</small>
+            <input type="text" placeholder="Prazo de entrega da Mentoria" defaultValue={customerInformations?.phone || ''} disabled={modalType === 'view'} />
           </InputControl>
           {modalType !== 'view' && (
           <button type="button" onClick={toggleModal}>
@@ -75,4 +79,4 @@ const CustomerModal = ({
   );
 };
 
-export default CustomerModal;
+export default LevelsModal;

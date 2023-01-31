@@ -19,6 +19,8 @@ export const DeleteModalContent = styled.div`
     box-shadow: 0px -4px 172px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     padding: 32px;
+    max-width: 280px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -39,6 +41,8 @@ export const DeleteModalContent = styled.div`
       font-weight: 500;
       height: 46px;
       padding: 0 20px;
+      width: 100%;
+      flex: 1;
       background-color: ${theme.colors.primary};
       color: ${theme.colors.white};
       transition: ${theme.transition.default};
@@ -71,4 +75,10 @@ export const RoundedIcon = styled.div`
     align-items: center;
     justify-content: center;
   `};
+`;
+
+export const DeleteModalButtons = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
 `;
