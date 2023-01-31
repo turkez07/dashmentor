@@ -73,10 +73,12 @@ const Sidebar = ({ toggled }: SidebarProps): any => {
           </Item>
         </NavLink> */}
 
-        <Item onClick={() => handleLogout()}>
-          <RiLogoutBoxLine />
-          <span>Sair</span>
-        </Item>
+        <NavLink to="/">
+          <Item onClick={() => handleLogout()}>
+            <RiLogoutBoxLine />
+            <span>Sair</span>
+          </Item>
+        </NavLink>
       </MenuItems>
     </Container>
   );
