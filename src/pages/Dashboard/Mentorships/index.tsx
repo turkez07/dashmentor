@@ -50,7 +50,7 @@ const Mentorships: React.FC = () => {
         <ContentHeaderTexts>
           <h2>Mentorias</h2>
           <ContentHeaderButtons>
-            <Link to="/mentorships/new">
+            <Link to="/mentorias/criar">
               <button type="button">Criar mentoria</button>
             </Link>
           </ContentHeaderButtons>

@@ -21,13 +21,13 @@ const Router: React.FC = () => {
       {signed ? (
         <Route path="" element={<Dashboard />}>
           <Route index element={<Reports />} />
-          <Route path="mentorships">
+          <Route path="mentorias">
             <Route index path="" element={<Mentorships />} />
-            <Route path="new" element={<NewMentorship />} />
+            <Route path="criar" element={<NewMentorship />} />
           </Route>
-          <Route path="tasks" element={<Tasks />} />
-          <Route path="customers" element={<Customers />} />
-          <Route path="calendar" element={<Calendar />} />
+          <Route path="tarefas" element={<Tasks />} />
+          <Route path="clientes" element={<Customers />} />
+          <Route path="agenda" element={<Calendar />} />
         </Route>
       ) : (
         <>
